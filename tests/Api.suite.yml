@@ -1,0 +1,16 @@
+actor: ApiTester
+modules:
+    enabled:
+        - Symfony:
+              app_path: 'src'
+              environment: 'test'
+              kernel_class: 'App\Kernel'
+              em_service: 'doctrine.orm.entity_manager'
+              debug: true
+        - REST:
+              url: 'http://localhost'
+              depends: Symfony
+        - Doctrine2:
+              depends: Symfony
+              cleanup: true
+        - Asserts
