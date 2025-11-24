@@ -81,6 +81,9 @@ class OrderItem
         return $this;
     }
 
+    /**
+
+
     public function getPrice(): ?float
     {
         return (float) $this->price;
@@ -91,6 +94,20 @@ class OrderItem
         $this->price = number_format($price, 2, '.', '');
         return $this;
     }
+    */
+    public function getPrice(): string
+    {
+        return $this->price;
+    }
+
+    public function setPrice(string $price): static
+    {
+        $this->price = number_format((float)$price, 2, '.', '');
+        return $this;
+    }
+
+
+
 
 
     public function getTotalPrice(): string
